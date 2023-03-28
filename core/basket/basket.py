@@ -49,9 +49,18 @@ class Basket:
         """
         return sum(item['qty'] for item in self.basket.values())
 
-
-
     def get_total_price(self):
         return sum(Decimal(item['price']) * item['qty'] for item in self.basket.values())
+
+    def delete(self, product):
+        """
+        Delete item from session data
+        """
+        product_id = str(product)
+
+        if product_id in self.basket:
+            del self.basket[product_id]
+        self.session.modified = True
+
 
 
