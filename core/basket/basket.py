@@ -22,9 +22,10 @@ class Basket:
         """
         product_id = product.id
         if product_id not in self.basket:
+            self.basket[product_id][qty] = qty
+        else:
             self.basket[product_id] = {'price': str(product.price), 'qty': int(qty)}
-
-        self.session.modified = True
+        self.save()
 
     def __iter__(self):
         """
@@ -60,6 +61,19 @@ class Basket:
 
         if product_id in self.basket:
             del self.basket[product_id]
+        self.save()
+
+    def update(self, product, qty):
+        """
+        Update item in session data
+        """
+        product_id = str(product)
+
+        if product_id in self.basket:
+            self.basket[product_id]['qty'] = qty
+        self.save()
+
+    def save(self):
         self.session.modified = True
 
 
