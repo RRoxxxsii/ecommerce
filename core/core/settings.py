@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'store.apps.StoreConfig',
     'basket.apps.BasketConfig',
     'account.apps.AccountConfig',
+    'payment.apps.PaymentConfig',
     'django_countries',
 ]
 
