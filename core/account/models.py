@@ -66,6 +66,7 @@ class UserBase(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.user_name
+
     def email_user(self, subject, message):
         send_mail(
             subject,
