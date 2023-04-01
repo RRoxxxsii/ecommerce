@@ -1,8 +1,7 @@
-var stripe = Stripe('sk_test_51Mrj3vKLxVOJXXushmb6LJnaB6Ir3cVbOk4PDJt5nCUUp9aBAsqdfsQbLkuFHpTUR14aYZc9A71Earu6FqK1CXww00bTya9G1z');
+var stripe = Stripe('pk_test_51Mrj3vKLxVOJXXusjFNd2F6IKjMAHD1PoyYD5Xg47YC4UFj0VNUqzOLqh8eI0mOTC6S8dNGDgqx9jFQoDusaneYp00YsSVaHdH');
 
 var elem = document.getElementById('submit');
-clientsecret = elem.getAttribute('data_secret');
-
+clientsecret = elem.getAttribute('data-secret');
 
 // Set up Stripe.js and Elements to use in checkout form
 var elements = stripe.elements();
