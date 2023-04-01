@@ -6,13 +6,16 @@
 {% block content %}
 
 
-<main>
+
   <div class="container">
     <div class="row">
       <div class="album py-5">
 
 
         <div class="pb-3"><h1 class="h3">Popular</h1></div>
+        {% if not products %}
+        <div class="col-12">There are currently no products here</div>
+        {% else %}
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
 
           {% for product in products %}
@@ -35,12 +38,13 @@
           {% endfor %}
 
         </div>
+        {% endif %}
       </div>
     </div>
 
   </div>
 
 
-</main>
+
 
 {% endblock %}
