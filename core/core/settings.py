@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'payment.apps.PaymentConfig',
     'orders.apps.OrdersConfig',
     'django_countries',
+    'mptt',
 ]
 
 MIDDLEWARE = [
