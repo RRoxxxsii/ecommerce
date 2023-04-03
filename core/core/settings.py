@@ -141,7 +141,7 @@ BASKET_SESSION_ID = 'basket'
 
 
 # Custom user model
-AUTH_USER_MODEL = 'account.UserBase'
+AUTH_USER_MODEL = 'account.Customer'
 LOGIN_REDIRECT_URL = '/account/dashboard'
 LOGIN_URL = '/account/login/'
 
