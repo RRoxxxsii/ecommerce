@@ -12,7 +12,11 @@
       <div class="album py-5">
 
 
-        <div class="pb-3"><h1 class="h3">Popular</h1></div>
+        <div class="pb-3"><h1 class="h3">{{ category.name|title }}</h1></div>
+         <div class="col-12 d-flex justify-content-between">
+          <div><b>Popular</b> products purchased</div>
+         </div>
+          <hr />
         {% if not products %}
         <div class="col-12">There are currently no products here</div>
         {% else %}
