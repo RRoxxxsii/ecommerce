@@ -1,0 +1,8 @@
+{% autoescape off %}
+Hi, {{ user.user_name }},
+To restore your account, please, click the below
+link to activate your account
+
+http://{{ domain }}{% url 'account:activate' uidb64=uid token=token %}
+
+{% endautoescape %}

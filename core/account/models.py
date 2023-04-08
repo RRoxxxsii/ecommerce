@@ -40,7 +40,7 @@ class CustomAccountManager(BaseUserManager):
 
 class Customer(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(_('email address'), unique=True)
-    name = models.CharField(max_length=150)
+    user_name = models.CharField(max_length=150)
     mobile = models.CharField(max_length=20, blank=True)
 
     # User Status
@@ -59,7 +59,7 @@ class Customer(AbstractBaseUser, PermissionsMixin):
         verbose_name_plural = "Accounts"
 
     def __str__(self):
-        return self.name
+        return self.user_name
 
     def email_user(self, subject, message):
         send_mail(

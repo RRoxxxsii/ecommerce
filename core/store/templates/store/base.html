@@ -33,7 +33,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle d-none d-md-block fw500" href="#" id="navbarDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Library
+                                Shop
                                 <i class="ps-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                         fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd"
@@ -69,12 +69,13 @@
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle text-reset" href="#" id="navbarDropdown" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                    <div class="small text-muted">Hello,
-                      {% if user.is_authenticated %}
-                        {{ request.user.name }}
-                      {% else %}
-                      Login
-                      {% endif %}
+                    <div class="small text-muted">
+                        {% if user.is_authenticated %}
+                        Hello,
+                        {{ request.user.user_name }}
+                        {% else %}
+                        <a href="{% url 'account:login' %}" class="text-reset text-decoration-none" >Login</a>
+                        {% endif %}
                     </div>
                     <span class="fs15 fw500">Account &amp; Lists
                     </span>
@@ -89,9 +90,14 @@
                           <a href="{% url "account:dashboard" %}" class="text-reset small list-group-item p-0 pb-1 border-0 dropdown-account-link">Your Account</a>
                           <a href="#" class="text-reset small list-group-item p-0 pb-1 border-0 dropdown-account-link">Orders</a>
                           <a href="{% url "account:logout" %}" class="text-reset small list-group-item p-0 pb-1 border-0 dropdown-account-link">Logout</a>
-                          {% else %}
+                          {% if user.is_superuser %}
+                            <a href="{% url 'admin:index' %}" class="text-reset small list-group-item p-0 pb-1 border-0 dropdown-account-link">Admin panel</a>
+
+                          {% elif not user.is_authenticated %}
                           <a href="{% url "account:login" %}" class="text-reset small list-group-item p-0 pb-1 border-0 dropdown-account-link">Login</a>
                           {% endif %}
+                            {% endif %}
+
                         </ul>
                       </div>
                     </div>
@@ -100,9 +106,6 @@
               </ul>
             </div>
           </div>
-
-
-
 
                     <a type="button" role="button" href="{% url "basket:basket_summary" %}"
                         class="btn btn-outline-secondary border-0 basket-btn">

@@ -42,6 +42,15 @@
                     </div>
                     {% endif %}
 
+                    {% if messages %}
+                    <div class="alert alert-warning" alert="{{ messages.tags }}" role="alert">
+                    {% for message in messages %}
+                    {{ message|safe }}
+                    {% endfor %}
+                    </div>
+                    {% endif %}
+
+
                     {% csrf_token %}
                     <label class="small font-weight-bold">{{ user_form.email.label}}</label>
                     {{ user_form.email }}
