@@ -77,7 +77,6 @@ class Basket:
     def save(self):
         self.session.modified = True
 
-
     def get_total_price(self):
         subtotal = sum(Decimal(item['price']) * item['qty'] for item in self.basket.values())
 
