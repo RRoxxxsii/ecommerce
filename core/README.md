@@ -4,7 +4,7 @@ wide functionality. User has abilities to:
 1) choose a single item and go to it
 2) user can view items for each category
 3) there the user is able to add a specific item to wishlist and delete if needed
-4) he can add an item to basket, delete items from there basket, change amount
+4) he can add an item to basket, delete items from the basket, change amount
 5) go to payment page nevertheless the payment action itself is not possible
 6) it is also possible for a user to change nickname and delete account
 7) when user registers he got an email message to confirm action
